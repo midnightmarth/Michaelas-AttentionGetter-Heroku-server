@@ -8,11 +8,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // app.use(cors);
 
+let holder;
+
 app.get("/api/_healthcheck", (req, res) => {
   res.send({ status: "Ok" });
 });
 
-let endpoint = app.ws("/api/ws", (req, res, next) => {
+app.ws("/api/ws", (req, res, next) => {
   // if (holder) {
   //   ws.send(holder);
   //   console.log("notifying serverM");
@@ -25,12 +27,13 @@ let endpoint = app.ws("/api/ws", (req, res, next) => {
   app.on("close", () => {
     console.log("Closed connection");
   });
+  holder = ws.send;
   ws.send({ status: "Hello There!" });
 });
 
 app.post("/api/button_press", (req, res) => {
-  console.log(endpoint);
-  endpoint.send(req.body);
+  console.log(holder);
+  holder(req.body);
   res.end();
 });
 
