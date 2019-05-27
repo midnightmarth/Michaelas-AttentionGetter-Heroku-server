@@ -12,7 +12,11 @@ let holder;
 
 app.get("/api/button_press", (req, res) => {
   console.log(req.body);
-  holder.send({ status: "on" });
+  if (holder) {
+    holder.send({ status: "on" });
+  } else {
+    res.send({ status: `websocket not available: ${holder}` });
+  }
 
   res.end();
 });
