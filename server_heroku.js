@@ -23,6 +23,7 @@ app.get("/api/_healthcheck", (req, res) => {
 app.ws("/api/ws", (req, res, next) => {
   if (holder) {
     ws.send(holder);
+    console.log("notifying serverM");
     holder = undefined;
   }
   app.on("message", () => {
