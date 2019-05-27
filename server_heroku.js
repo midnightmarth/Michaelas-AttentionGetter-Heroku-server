@@ -12,12 +12,8 @@ let holder;
 
 app.get("/api/button_press", (req, res) => {
   console.log(holder);
-  if (holder) {
-    holder.send({ status: "on" });
-  } else {
-    res.send({ responseStatus: holder });
-  }
-  // res.end();
+  holder = req.body;
+  res.end();
 });
 
 app.get("/api/_healthcheck", (req, res) => {
@@ -25,7 +21,10 @@ app.get("/api/_healthcheck", (req, res) => {
 });
 
 app.ws("/api/ws", (req, res, next) => {
-  holder = ws;
+  if (holder) {
+    ws.send(holder);
+    holder = undefined;
+  }
   app.on("message", () => {
     console.log("All arguments when ws hit: \n", ...arguments);
   });
