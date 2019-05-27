@@ -32,10 +32,7 @@ app.ws("/api/ws", (req, res, next) => {
   app.on("close", () => {
     console.log("Closed connection");
   });
-  app.on("connect", () => {
-    console.log("Something Connected!");
-    ws.send({ status: "Hello There!" });
-  });
+  ws.send({ status: "Hello There!" });
 });
 
 var server = app.listen(process.env.PORT || 8080, function() {
