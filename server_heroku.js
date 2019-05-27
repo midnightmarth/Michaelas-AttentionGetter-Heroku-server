@@ -19,6 +19,10 @@ app.get("/api/button_press", (req, res) => {
   res.end();
 });
 
+app.get("/api/_healthcheck", (req, res) => {
+  res.send({ status: "Ok" });
+});
+
 // app.ws("/", (req, res, next) => {
 //   app.on("message", () => {
 //     console.log("All arguments when ws hit: \n", ...arguments);
