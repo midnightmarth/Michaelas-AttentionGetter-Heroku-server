@@ -10,9 +10,9 @@ app.use(bodyParser.json());
 
 let holder;
 
-app.get("/api/button_press", (req, res) => {
-  console.log(holder);
+app.post("/api/button_press", (req, res) => {
   holder = req.body;
+  console.log(holder);
   res.end();
 });
 
