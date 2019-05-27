@@ -15,7 +15,7 @@ app.get("/api/button_press", (req, res) => {
   if (holder) {
     holder.send({ status: "on" });
   } else {
-    res.send({ responseStatus: `websocket not available: ${holder}` });
+    res.send({ responseStatus: holder });
   }
   // res.end();
 });
