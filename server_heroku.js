@@ -14,7 +14,7 @@ app.use(cors);
 //   return next();
 // });
 
-app.get("/button_press", (req, res) => {
+app.get("/api/button_press", (req, res) => {
   console.log(req.body);
   res.end();
 });
@@ -32,8 +32,10 @@ app.get("/button_press", (req, res) => {
 //   console.log("socket", req.testing);
 // });
 
-app.listen(8080);
-
+var server = app.listen(process.env.PORT || 8080, function() {
+  var port = server.address().port;
+  console.log("App now running on port", port);
+});
 // const WebSocket = require("ws");
 
 // const wss = new WebSocket.Server({ port: 1128 });
