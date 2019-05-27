@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 let holder;
 
 app.get("/api/button_press", (req, res) => {
-  console.log(req.body);
+  console.log(holder);
   if (holder) {
     holder.send({ status: "on" });
   } else {
@@ -34,6 +34,7 @@ app.ws("/api/ws", (req, res, next) => {
   });
   app.on("connect", () => {
     console.log("Something Connected!");
+    ws.send({ status: "Hello There!" });
   });
 });
 
