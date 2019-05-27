@@ -1,0 +1,25 @@
+{
+  "name": "herokuattentiongetter",
+  "version": "1.0.0",
+  "main": "server_heroku.js",
+  "scripts": {
+    "start": "nodemon server_heroku"
+  },
+  "author": "AtEchoOff",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/midnightmarth/Michaela-sAttentionGetter-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/midnightmarth/Michaela-sAttentionGetter-server/issues"
+  },
+  "homepage": "https://github.com/midnightmarth/Michaela-sAttentionGetter-server#readme",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "ws": "^7.0.0"
+  }
+}
