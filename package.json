@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server_heroku.js",
   "scripts": {
-    "start": "nodemon server_heroku"
+    "start": "node server_heroku"
   },
   "author": "AtEchoOff",
   "license": "ISC",

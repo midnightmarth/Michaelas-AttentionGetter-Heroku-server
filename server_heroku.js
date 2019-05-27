@@ -32,9 +32,7 @@ app.get("/button_press", (req, res) => {
 //   console.log("socket", req.testing);
 // });
 
-app.listen(1128, () => {
-  console.log("Listening on port 1128");
-});
+app.listen(8080);
 
 // const WebSocket = require("ws");
 
