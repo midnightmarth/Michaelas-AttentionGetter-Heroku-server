@@ -8,9 +8,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // app.use(cors);
 
+let holder;
+
 app.get("/api/button_press", (req, res) => {
   console.log(req.body);
-  app.ws.send({ status: "on" });
+  holder.send({ status: "on" });
+
   res.end();
 });
 
@@ -19,6 +22,7 @@ app.get("/api/_healthcheck", (req, res) => {
 });
 
 app.ws("/api/ws", (req, res, next) => {
+  holder = ws;
   app.on("message", () => {
     console.log("All arguments when ws hit: \n", ...arguments);
   });
@@ -28,7 +32,6 @@ app.ws("/api/ws", (req, res, next) => {
   app.on("connect", () => {
     console.log("Something Connected!");
   });
-  console.log("socket", req.testing);
 });
 
 var server = app.listen(process.env.PORT || 8080, function() {
