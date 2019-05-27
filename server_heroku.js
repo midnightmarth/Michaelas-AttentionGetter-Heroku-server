@@ -2,11 +2,11 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 // const expressWs = require("express-ws")(app);
-const cors = require("cors");
+// const cors = require("cors");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(cors);
+// app.use(cors);
 
 // app.use(function(req, res, next) {
 //   console.log("middleware");
