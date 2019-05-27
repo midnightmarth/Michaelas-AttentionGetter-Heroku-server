@@ -15,10 +15,9 @@ app.get("/api/button_press", (req, res) => {
   if (holder) {
     holder.send({ status: "on" });
   } else {
-    res.send({ status: `websocket not available: ${holder}` });
+    res.send({ responseStatus: `websocket not available: ${holder}` });
   }
-
-  res.end();
+  // res.end();
 });
 
 app.get("/api/_healthcheck", (req, res) => {
