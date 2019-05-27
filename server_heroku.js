@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 app.get("/api/button_press", (req, res) => {
   console.log(req.body);
-  ws.send({ status: "on" });
+  app.ws.send({ status: "on" });
   res.end();
 });
 
