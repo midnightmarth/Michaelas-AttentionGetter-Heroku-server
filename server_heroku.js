@@ -22,6 +22,6 @@ io.on("connection", socket => {
   });
 });
 
-http.listen(8080, function() {
-  console.log("App now running on port 8080");
+http.listen(process.env.PORT || 8080, function() {
+  console.log(`App now running on port ${process.env.PORT}`);
 });
