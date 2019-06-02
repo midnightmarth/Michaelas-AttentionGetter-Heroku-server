@@ -13,7 +13,10 @@ io.on("connection", socket => {
     console.log("Button press was activated");
     switch (message.status) {
       case "on":
-        io.emit("turn on");
+        io.emit("turn on", message.color);
+        break;
+      case "strobe":
+        io.emit("strobe", message.color || null);
         break;
       case "off":
         io.emit("turn off");
